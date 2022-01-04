@@ -1,0 +1,33 @@
+
+
+@mixin height($height) {
+	height: $height !important;
+	min-height: $height !important;
+	max-height: $height !important;
+	padding: 4px;
+	// -moz-border-radius: $radius;
+	// -webkit-border-radius: $radius;
+	// -ms-border-radius: $radius;
+	// border-radius: $radius;
+}
+
+.h-5 { @include height(5%); }
+.h-10 { @include height(10%); }
+.h-15 { @include height(15%); }
+.h-20 { @include height(20%); }
+.h-25 { @include height(25%); }
+.h-30 { @include height(30%); }
+.h-35 { @include height(35%); }
+.h-40 { @include height(40%); }
+.h-45 { @include height(45%); }
+.h-50 { @include height(50%); }
+.h-55 { @include height(55%); }
+.h-60 { @include height(60%); }
+.h-65 { @include height(65%); }
+.h-70 { @include height(70%); }
+.h-75 { @include height(75%); }
+.h-80 { @include height(80%); }
+.h-85 { @include height(85%); }
+.h-90 { @include height(90%); }
+.h-95 { @include height(95%); }
+.h-100 { @include height(100%); }

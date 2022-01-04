@@ -1,0 +1,273 @@
+@import '~styles/font.scss';
+@import '~styles/admin.scss';
+
+body {
+	font-family: $font-family-1;
+}
+
+.xpd-green-list-container ul {
+    border: 2px solid #456c75;
+    font-family: $font-family-1;
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #456c75;
+    margin-top: 5px;
+}
+
+.xpd-green-list-container li {
+    background-color: #acd7ca;
+    color: black;
+    text-align: left;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.xpd-green-list-container li > a {
+    color: #000;
+    padding: 0 5px;
+    list-style-type: disc;
+}
+
+.child-element-spacing {
+    overflow: auto;
+    max-height: 85%;
+}
+
+.child-element-spacing > div:nth-child(2){
+    margin-top: 25px;
+}
+
+
+.vre-report-table-text-remaining-time-row{
+    background-color: #F5F5F5;
+}
+
+.vre-score-bar-chart-total-plotband{
+    opacity: 0.1;
+}
+
+.vre-score-any-bar{
+    opacity: 0.8;
+}
+
+.vre-score-any-bar:hover{
+    opacity: 1;
+}
+
+/**
+ * HISTOGRAM
+ */
+.histogram-report-col{
+	margin-bottom: 10px;
+}
+
+.interval-selection{
+	background-color: black;
+	padding: 3px;
+	color: white;
+}
+
+.interval-selection .form-control{
+    max-width: 50px;
+}
+
+.interval-selection .btn-sm{
+    padding: 8px 10px;
+}
+
+.empty-value-report-message{
+	color: white;
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    max-width: 600px;
+    margin: 0 auto;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.empty-value-report-message.has-error{
+    margin-top: 10px;
+    background-color: rgb(243, 66, 66);
+}
+
+.histogram-diff-message-container{
+    display: block;
+    position: absolute;
+    background-color: rgba(0,0,0, 0.65);
+    height: 100%;
+    top: 0;
+    width: 100%;
+}
+
+.histogram-diff-message-container .panel{
+    width: 350px;
+    /* position: absolute; */
+    /* top: 15%; */
+    margin: 0 auto;
+    display: block;
+    margin-top: 75px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.needle-highcharts-plot-band{
+    fill-opacity: 0.05;
+}
+
+.needle-highcharts-plot-band-label {
+    fill: white;
+    font-size: 1.3em;
+}
+
+.bit-depth-time-highcharts-plot-band{
+    fill-opacity: 0.2;
+}
+
+.bit-depth-time-highcharts-plot-band-label {
+    fill: white;
+    font-size: 1.3em;
+}
+
+.executedevent .equilibrium-time-table-text{
+    color: #e89313;
+}
+
+.plannedevent .equilibrium-time-table-text{
+    color: #f0f0f0;
+}
+
+.highligth-details-bdt-table > table{
+    border: medium #00FFFF solid;
+}
+
+.vre-score-label {
+    font-family: $font-family-1;
+    color: #00807f;
+    text-align: left;
+    fill: #00807f;
+    text-anchor: middle;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 0;
+    padding-left: 20px;
+}
+
+.positive-vre,
+.negative-vre {
+    font-weight: bold;
+}
+
+rect.positive-vre {
+    fill: #75b6e5
+}
+
+.positive-vre {
+    color: #75b6e5;
+}
+
+rect.negative-vre {
+    fill: #821919
+}
+
+.negative-vre {
+    color: #cc0505;
+}
+
+.general-vre-container.positive-vre {
+    border: 1px solid #92d050;
+}
+
+.general-vre-container.negative-vre {
+    border: 1px solid #cc0505;
+}
+
+.vtr-report-table>tbody>tr>td{
+    border-top: 1px solid #000;
+}
+
+.vtr-report-table>tfoot>tr>td{
+    border-top: 1px solid #00807f;
+}
+
+.vre-align{
+    text-align: right;
+}
+
+.time-align{
+    text-align: center;
+}
+
+.vre-score-table{
+    border-collapse: initial;
+}
+
+.vre-score-table>tbody>tr>td{
+    /*padding: 8px 0 8px 0;*/
+    padding-top: 8px
+}
+.in-npt{
+    background-color: #e0b9b9;
+}
+.center-align-list td {
+    text-align: center;
+}
+.in-best-practices {
+    background-color: #7dcf82;
+}
+
+.in-best-practices td:first-child span {
+    color: #f9ff00;
+ }
+
+ 
+.failure-report-chart{
+    margin-bottom: 10px;
+}
+
+
+.failure-report-chart div{
+    border-radius: 5px;
+}
+
+.failures-breadcrumb{
+    background-color: transparent;
+    color: #acd7ca;
+}
+
+.failures-breadcrumb a{
+    cursor: pointer;
+    color: #436a72;
+}
+
+.failures-report-table{
+    border-radius: 3px;
+   background-color: #2b908f;
+}
+
+.failures-report-tbody tr{
+    cursor: pointer;
+}
+
+.failures-report-tbody tr{
+    background-color: #acd7ca;
+}
+
+.failures-report-tbody tr:hover{
+    background-color: #9fd8c7
+}
+
+.table-fixed-header{
+    margin-bottom: 0;
+}
+.div-table-fixed{
+   max-height:250px;
+   overflow-y:auto;
+}
+
+.legend-category {
+     border-radius: 50%;
+     margin: 3px;
+     width: 15px;
+     height: 15px;
+}

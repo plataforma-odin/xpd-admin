@@ -1,0 +1,51 @@
+@import '~styles/font.scss';
+
+/**
+ * MEMBER PERFORMANCE DIRECTIVE
+ */
+xpd-member-performance {
+
+    display: block;
+    width: 100%;
+    padding: 8px 2px;
+    font-family: $font-family-1;
+
+    .member-header-function-rect {
+        fill: #54838d;
+    }
+
+    .member-header-text {
+        alignment-baseline: middle;
+        text-anchor: middle;
+        font-size: 0.5em;
+    }
+
+    .member-header-text.member-header-function-text {
+        fill: white;
+        font-weight: bold;
+    }
+
+    .member-header-text.member-header-name-text {
+        fill: #75b6e5;
+    }
+
+    .member-header-name-rect {
+        fill: transparent;
+    }
+
+    .member-content-rect {
+        stroke: #578893;
+        stroke-width: 4px;
+    }
+
+    .performance-bar-text {
+        fill: #75b6e5;
+        font-size: 0.6em;
+        font-weight: bold;
+    }
+
+    .performance-bar-text.performance-bar-safety-text {
+        fill: #da7070;
+    }
+
+}

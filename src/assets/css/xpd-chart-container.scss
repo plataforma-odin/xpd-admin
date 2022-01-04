@@ -1,0 +1,62 @@
+@import '~styles/font.scss';
+
+
+
+// .xpd-chart-container {
+
+//     height: 100%;
+
+//     .xpd-chart-container-header,
+//     .xpd-chart-container-footer {
+//         padding: 5px 15px;
+//     }
+
+//     .xpd-chart-container-content {
+//         height: auto;
+//     }
+
+//     .xpd-chart-container-header {
+//         font-size: 1em;
+//         text-align: center;
+//         font-family: $font-family-1;
+//         -webkit-text-stroke: 1px #517f89;
+//         -webkit-text-fill-color: transparent;
+//     }
+
+// }
+
+
+.xpd-chart-container {
+
+    display: table;
+    height: 100%;
+    max-height: 100%;
+    table-layout:fixed;
+    
+    > div {
+        display: table-row;
+        height: 0;
+    }
+
+    .xpd-chart-container-header,
+    .xpd-chart-container-footer {
+        padding: 5px 15px;
+        display: table-row;
+    }
+
+    .xpd-chart-container-content {
+        display: table-row;
+        height: 100%;
+        max-height: 100%;
+        table-layout:fixed;
+    }
+
+    .xpd-chart-container-header {
+        font-size: 1em;
+        text-align: center;
+        font-family: $font-family-1;
+        -webkit-text-stroke: 1px #517f89;
+        -webkit-text-fill-color: transparent;
+    }
+
+}

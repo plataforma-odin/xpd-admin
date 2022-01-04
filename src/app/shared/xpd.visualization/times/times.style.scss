@@ -1,0 +1,27 @@
+@import '~styles/font.scss';
+
+xpd-times {
+    
+    font-family: $font-family-1;
+
+    display: block;
+    height: 100%;
+    flex: 1;
+
+    .xpd-times-ticks {
+        font-size: 0.2em;
+        fill: #bff0ef;
+        text-anchor: end;
+    }
+
+    .xpd-times-bar:hover,
+    .xpd-times-selected-bar {
+        fill: white;
+    }
+
+    .xpd-times-container {
+        padding: 0;
+        // padding: 10px 5px;
+    }
+
+}

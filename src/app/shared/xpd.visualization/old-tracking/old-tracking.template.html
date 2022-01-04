@@ -1,0 +1,149 @@
+<div class="row nopadding h-100">
+
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 h-100 connection-times-container">
+        <div class="xpd-chart-container">
+
+            <div class="xpd-chart-container-header">
+                <p>Slips to Slips (Conn)</p>
+            </div>
+
+            <div class="xpd-chart-container-content">
+                <xpd-times ng-if="currentOperation && currentOperation.running && currentEvent != null" times='connectionTimes'
+                    max-seconds="175" max-bars="200" selected-event="selectedEvent" action-open-dropdown-menu="openDropdownMenu">
+                </xpd-times>
+
+                <div class="xpd-placeholder" ng-if="!currentOperation.running">
+                    <span class="xpd-placeholder-text">No running operation</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 h-100 trip-times-container">
+        <div class="xpd-chart-container">
+
+            <div class="xpd-chart-container-header">
+                <p>Slips to Slips (Trip)</p>
+            </div>
+
+            <div class="xpd-chart-container-content">
+                <xpd-times ng-if="currentOperation && currentOperation.running && currentEvent != null" times='tripTimes'
+                    max-seconds="100" max-bars="200" action-open-dropdown-menu="openDropdownMenu" selected-event="selectedEvent">
+                </xpd-times>
+
+                <div class="xpd-placeholder" ng-if="!currentOperation.running">
+                    <span class="xpd-placeholder-text">No running operation</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 h-100 current-activity-container">
+        <!-- 
+        <div class="xpd-chart-container">
+
+            <div class="xpd-chart-container-header">
+                <p>Current Activity</p>
+            </div>
+
+            <div class="xpd-chart-container-content"> -->
+
+        <div class="row nopadding h-95">
+
+            <!-- Connection, Time and WAIT -->
+            <div class="row nopadding h-100" ng-if="currentEvent.eventType != 'TRIP'">
+
+                <div class="col-md-8 nopadding h-100">
+                    <xpd-conn-ruler chronometer="( currentTick / 1000 )" vtarget-duration='taskExpectedDuration'
+                        time-blocks="timeBlocks" flash-go-div="dController.flashGoDiv">
+                    </xpd-conn-ruler>
+                </div>
+
+                <div class="col-md-4 nopadding h-100">
+                    <xpd-trip-ruler show-slow-down="flags.showSlowDown" readings='currentReading' calculated='currentCalculated'
+                        current-event="{{currentEvent}}" operation='currentOperation'>
+                    </xpd-trip-ruler>
+                </div>
+
+            </div>
+
+            <!-- TRIP -->
+            <div class="row nopadding h-90" ng-if="currentEvent.eventType == 'TRIP'">
+
+                <div class="col-md-6 nopadding h-100">
+
+                    <xpd-speed-gauge has-alarm="flags.hasAlarm" has-message="flags.hasMessage" readings='currentReading'
+                        calculated='currentCalculated' operation='currentOperation' safety-speed-limit="safetySpeedLimit">
+                    </xpd-speed-gauge>
+
+                </div>
+                <div class="col-md-6 nopadding h-100">
+                    <xpd-trip-ruler show-slow-down="flags.showSlowDown" readings='currentReading' calculated='currentCalculated'
+                        current-event="{{currentEvent}}" operation='currentOperation' expected-changing="changingStatesList"
+                        expected-alarm-changing="changingAlarmsList" unreachable="unreachable">
+                    </xpd-trip-ruler>
+                </div>
+
+            </div>
+
+            <!-- TRIP -->
+            <div class="row nopadding h-10" ng-if="currentEvent.eventType == 'TRIP'">
+                <div class="col-md-12 nopadding h-100">
+                    <xpd-in-slips calculated='currentTimeCalculated' target='currentOperation.inSlips'>
+                    </xpd-in-slips>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Chronometer -->
+        <div class="row nopadding h-5">
+            <div class="xpd-conn-chronometers ">
+
+                <span ng-class="{'trip-time-target-overtime': ( currentTick / 1000 ) > taskExpectedDuration }">
+                    {{ ( currentTick / 1000 ) | secondsToHourMinutesSeconds }}
+                </span>
+                <span ng-if="taskExpectedDuration != null">
+                    / {{taskExpectedDuration | secondsToHourMinutesSeconds}}
+                </span>
+                <span ng-if="taskExpectedDuration == null">
+                    / &infin;
+                </span>
+
+            </div>
+        </div>
+
+
+        <!-- </div>
+
+        </div> -->
+
+        <div class="blockspeed-ruler-go" ng-show="flags.showGo || flags.showUnreachable">
+            <span class="blockspeed-ruler-go-text">GO!</span>
+        </div>
+
+        <div class="blockspeed-ruler-slow-down" ng-show="flags.showSlowDown" ng-if="currentEvent.eventType == 'TRIP'">
+            <span class="blockspeed-ruler-slow-down-text">Exceeding the speed limit!</span>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--Extras -->
+<div class="btn-group slips-to-slips-dropdown-menu" uib-dropdown is-open="flags.openDropdownMenu">
+    <ul uib-dropdown-menu role="menu">
+        <li role="menuitem">
+            <a ng-click="onClickEventDetails()" id="times-bar-click-details">Details</a>
+        </li>
+        <li role="menuitem">
+            <a ng-click="onClickFailures()" id="times-bar-click-failures">Failures</a>
+        </li>
+        <li role="menuitem">
+            <a ng-click="onClickLessonsLearned()" id="times-bar-click-lessons">Lessons Learned</a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-sm btn-primary pull-right" href="#/team">
+                Show Agenda</a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="col-md-6">
+                <h1 class="xpd-box-title">Teams</h1>
+
+                <xpd-member-performance class="col-md-4 h-25" ng-repeat="team in team.teams" member="team">
+                </xpd-member-performance>
+
+                <div ng-if="!team.teams || !team.teams.length">
+                    <h3 class="xpd-box-title">No teams</h3>
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+                <h1 class="xpd-box-title">Members</h1>
+
+                <xpd-member-performance class="col-md-4 h-25" ng-repeat="member in team.members" member="member">
+                </xpd-member-performance>
+
+                <div ng-if="!team.members || !team.members.length">
+                    <h3 class="xpd-box-title">No members</h3>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version='1.1' ng-attr-width='{{ svg.viewWidth }}'
+ ng-attr-height='{{ svg.viewHeight }}'>
+
+	<g>
+		<rect id="chart-area" x="0" y="0" fill="white" fill-opacity="0.6" ng-attr-width='{{ svg.viewWidth }}' ng-attr-height='{{ svg.viewHeight }}'/>
+		<path fill="#0000ff" fill-opacity="0.5" id="bit-depth-path" />
+	</g>
+
+	<g class="time-ticks">
+		<g ng-repeat="tick in xTicks" ng-attr-transform="translate({{ timeScale(tick) }}, 0)">
+			<!-- <text alignment-baseline="baseline" x="-10" ng-attr-y='{{ svg.viewHeight * 0.25 }}'>{{ tick | date: 'mediumDate' }}</text> -->
+			<!-- <line y1="0" x1="0" ng-attr-y2='{{ svg.viewHeight }}' x2="0" stroke="black" stroke-opacity="0.2" stroke-width="0.1em" /> -->
+			
+			<text alignment-baseline="baseline" x="0" ng-attr-y='{{ svg.viewHeight * 0.25 }}' font-size="10">{{ tick | date: 'mediumDate' }}</text>
+			<text alignment-baseline="middle" 	x="0" ng-attr-y='{{ svg.viewHeight * 0.50 }}' font-size="10">{{ getBitDepth(tick) | number: '.0' }} (m)</text>
+			<text alignment-baseline="hanging" 	x="0" ng-attr-y='{{ svg.viewHeight * 0.75 }}' font-size="10">{{ tick | date: 'shortTime' }}</text>
+			
+			<line y1="0" x1="0" ng-attr-y2='{{ svg.viewHeight / 7 }}' x2="0" stroke="black" stroke-opacity="0.2" stroke-width="0.1em" />
+			<line ng-attr-y1="{{ svg.viewHeight / 1.2 }}" x1="0" ng-attr-y2='{{ svg.viewHeight }}' x2="0" stroke="black" stroke-opacity="0.2" stroke-width="0.1em" />
+		</g>
+	</g>
+
+	<rect class="overlay" x="0" y="0" fill-opacity="0" ng-attr-width='{{ svg.viewWidth }}' ng-attr-height='{{ svg.viewHeight }}'></rect>
+
+	<g>
+
+		<rect style="cursor:move;" id="zoom-area" class="navigator" y="0" x="0" width="0" ng-attr-height="{{ svg.viewHeight }}" fill="#6685C2" fill-opacity="0.5"/>
+
+		<g ng-attr-transform="translate( 0, {{ (( (svg.viewHeight || 0) / 2 ) - 7.5) }})">
+
+			<!-- <text id="start-date-navigator" alignment-baseline="baseline" font-size="10">data</text> -->
+
+			<text style="user-select: none;" text-anchor="end" id="start-navigator-text"></text>
+			<text style="user-select: none;" text-anchor="start" id="end-navigator-text"></text>
+
+			<path fill="#f2f2f2" stroke="#999999" stroke-width="1" d="M -4.5 0.0 L 3.5 0.0 L 3.5 15.0 L -4.5 15.0 L -4.5 0.0 M -1.5 3.5 L -1.5 11.5 M 0.5 3.5 L 0.5 11.5"
+			 id="start-navigator" class="navigator" />
+
+			<path fill="#f2f2f2" stroke="#999999" stroke-width="1" d="M -4.5 0.0 L 3.5 0.0 L 3.5 15.0 L -4.5 15.0 L -4.5 0.0 M -1.5 3.5 L -1.5 11.5 M 0.5 3.5 L 0.5 11.5"
+			 id="end-navigator" class="navigator" />
+		</g>
+
+	</g>
+
+
+
+</svg>

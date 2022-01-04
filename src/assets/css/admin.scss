@@ -1,0 +1,83 @@
+@import '~styles/font.scss';
+@import './setup.scss';
+@import './tracking.scss';
+@import './planner.scss';
+@import './team.scss';
+@import './member-scheduler.scss';
+@import './alarm.scss';
+
+.tree-content{
+    background-color: #acd7ca;
+    border-radius: 2px;
+    overflow: auto;
+    max-height: 525px;
+    border: solid #3a7b93 2px;
+}
+
+/*
+ * FAILURES REPORT
+ */
+
+.current-elevator-bit-depth-cicle-row{
+    font-size: 2em;
+}
+
+.out-of-slips-indicators-container{
+    overflow: auto;
+}
+
+/**
+ * FIXED HEADER TABLE
+ */
+
+
+ /**
+  * LEGEND CATEGORY
+  */
+
+/**
+ * DATA ACQUISITION
+ */
+
+.readings-is-acquired {
+    position: inherit;
+    display: block;
+}
+
+.data-acquisition-status-icon{
+    padding-top: 10px;
+}
+
+.data-acquisition-status-icon.status-open{
+    color: #38e638;
+}
+
+.data-acquisition-status-icon.status-close{
+    color: red;
+}
+
+/**
+ * TEAM
+ */
+
+
+/*
+ * FAILURE ON GOING 
+ */
+
+/**
+ * RPD
+ */
+.shift-report {
+    height: 100vh;
+    overflow: auto
+}
+
+/**
+    DMEC
+*/
+
+.navigator {
+    cursor: col-resize;
+}
+
