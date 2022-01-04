@@ -7,12 +7,12 @@
         </button>
 
         <button type="button" ng-if="currentOperation != null && !currentOperation.running" class="btn btn-primary xpd-nav-button"
-            ng-click="clickStartOperation()">
+            ng-click="clickStartOperation()" disabled="true">
             Start Operation {{ (currentOperation)? currentOperation.name : "No operation" }}
 
         </button>
 
-        <button type="button" ng-if="currentOperation != null && currentOperation.running" class="btn btn-primary xpd-nav-button"
+        <button type="button" ng-if="currentOperation != null && currentOperation.running" class="btn btn-primary xpd-nav-button" disabled="true"
             ng-click="actionButtonFinishOperation()">
             Finish Operation {{ (currentOperation)? currentOperation.name : "No operation" }}
 
