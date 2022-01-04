@@ -1,0 +1,22 @@
+stages:
+  - deploy
+
+variables:
+  IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+
+homolog:
+  stage: deploy
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - envsubst < .env-homolog > .env
+
+  script:
+    - echo $IMAGE_TAG
+    - docker-compose build admin
+    - docker-compose push admin
+    - docker-compose stop
+    - docker-compose up -d
+  only:
+    - main
+  tags:
+    - rzx

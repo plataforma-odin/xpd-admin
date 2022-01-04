@@ -1,0 +1,18 @@
+version: "3.7"
+        
+networks:
+    xpd-network:
+        name: 'xpd-network'
+    
+services:
+  admin:
+      image: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
+      build: "."
+      hostname: 'xpd-admin'
+      container_name: 'xpd-admin'
+    #   volumes:
+    #     - ./dist:/usr/share/nginx/html
+      ports: 
+          - "9000:80"
+      networks:
+          - xpd-network
